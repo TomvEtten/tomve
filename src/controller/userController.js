@@ -1,7 +1,7 @@
 user = require('../model/user');
 // Handle index actions
 exports.index = function (req, res) {
-    user.get(function (err, contacts) {
+    user.get(function (err, users) {
         if (err) {
             res.json({
                 status: "error",
@@ -10,25 +10,25 @@ exports.index = function (req, res) {
         }
         res.json({
             status: "success",
-            message: "user retrieved successfully",
-            data: contacts
+            message: "user(s) retrieved successfully",
+            data: users
         });
     });
 };
 // Handle create contact actions
 exports.new = function (req, res) {
-    let contact = new user();
-    contact.name = req.body.name ? req.body.name : contact.name;
-    contact.gender = req.body.gender;
-    contact.email = req.body.email;
-    contact.phone = req.body.phone;
+    let user = new user();
+    user.name = req.body.name ? req.body.name : user.name;
+    user.gender = req.body.gender;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
 // save the contact and check for errors
-    contact.save(function (err) {
+    user.save(function (err) {
         // if (err)
         //     res.json(err);
         res.json({
             message: 'New user created!',
-            data: contact
+            data: user
         });
     });
 };
@@ -45,15 +45,15 @@ exports.view = function (req, res) {
 };
 // Handle update contact info
 exports.update = function (req, res) {
-    user.findById(req.params.contact_id, function (err, contact) {
+    user.findById(req.params.user_id, function (err, user) {
         if (err)
             res.send(err);
-        contact.name = req.body.name ? req.body.name : contact.name;
-        contact.gender = req.body.gender;
-        contact.email = req.body.email;
-        contact.phone = req.body.phone;
+        user.name = req.body.name ? req.body.name : user.name;
+        user.gender = req.body.gender;
+        user.email = req.body.email;
+        user.phone = req.body.phone;
 // save the contact and check for errors
-        contact.save(function (err) {
+        user.save(function (err) {
             if (err)
                 res.json(err);
             res.json({
