@@ -1,0 +1,29 @@
+{
+  "name": "tomve",
+  "version": "0.0.1",
+  "description": "personal website",
+  "main": "src/bin/www",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomvEtten/tomve.git"
+  },
+  "author": "Tom van Etten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TomvEtten/tomve/issues"
+  },
+  "homepage": "https://github.com/TomvEtten/tomve#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.5.15",
+    "morgan": "~1.9.1"
+  }
+}
