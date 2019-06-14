@@ -1,7 +1,7 @@
-user = require('../model/user');
+User = require('../model/user');
 // Handle index actions
 exports.index = function (req, res) {
-    user.get(function (err, users) {
+    User.get(function (err, users) {
         if (err) {
             res.json({
                 status: "error",
@@ -15,17 +15,17 @@ exports.index = function (req, res) {
         });
     });
 };
-// Handle create contact actions
+// Handle create user actions
 exports.new = function (req, res) {
-    let user = new user();
+    let user = new User();
     user.name = req.body.name ? req.body.name : user.name;
     user.gender = req.body.gender;
     user.email = req.body.email;
     user.phone = req.body.phone;
 // save the contact and check for errors
     user.save(function (err) {
-        // if (err)
-        //     res.json(err);
+         if (err)
+             res.json(err);
         res.json({
             message: 'New user created!',
             data: user
@@ -34,18 +34,18 @@ exports.new = function (req, res) {
 };
 // Handle view contact info
 exports.view = function (req, res) {
-    user.findById(req.params.contact_id, function (err, contact) {
+    User.findById(req.params.user_id, function (err, user) {
         if (err)
             res.send(err);
         res.json({
-            message: 'user details loading..',
-            data: contact
+            message: 'user details',
+            data: user
         });
     });
 };
 // Handle update contact info
 exports.update = function (req, res) {
-    user.findById(req.params.user_id, function (err, user) {
+    User.findById(req.params.user_id, function (err, user) {
         if (err)
             res.send(err);
         user.name = req.body.name ? req.body.name : user.name;
@@ -65,7 +65,7 @@ exports.update = function (req, res) {
 };
 // Handle delete contact
 exports.delete = function (req, res) {
-    user.remove({
+    User.remove({
         _id: req.params.contact_id
     }, function (err) {
         if (err)
