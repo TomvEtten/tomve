@@ -18,10 +18,10 @@ exports.index = function (req, res) {
 // Handle create user actions
 exports.new = function (req, res) {
     let user = new User()
-    user.name = req.body.name
-    user.gender = req.body.gender
-    user.email = req.body.email
-    user.phone = req.body.phone
+    user.name = req.body.name ? req.body.name : 'template'
+    user.gender = req.body.gender ? req.body.gender : 'apache attack helpicopter'
+    user.email = req.body.email ? req.body.email : 'apache@attackheli.chopper'
+    user.phone = req.body.phone ? req.body.phone : 'call 09009009'
 
     user.save(function (err) {
          if (err)
