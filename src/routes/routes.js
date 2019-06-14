@@ -12,10 +12,10 @@ router.get('/', function (req, res) {
 // Import contact controller
 
 // Contact routes
-router.route('/contacts')
+router.route('/user')
     .get(userController.index)
     .post(userController.new);
-router.route('/contacts/:contact_id')
+router.route('/user/:user_id')
     .get(userController.view)
     .patch(userController.update)
     .put(userController.update)
