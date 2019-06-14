@@ -18,7 +18,7 @@ exports.index = function (req, res) {
 // Handle create user actions
 exports.new = function (req, res) {
     let user = new User()
-    user.name = req.body.name ? req.body.name : user.name
+    user.name = req.body.name
     user.gender = req.body.gender
     user.email = req.body.email
     user.phone = req.body.phone
