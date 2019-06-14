@@ -17,7 +17,7 @@ exports.index = function (req, res) {
 };
 // Handle create user actions
 exports.new = function (req, res) {
-    let user = new User();
+    user = require('../model/user');
     user.name = req.body.name ? req.body.name : user.name;
     user.gender = req.body.gender;
     user.email = req.body.email;
