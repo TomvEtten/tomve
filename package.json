@@ -5,7 +5,7 @@
   "main": "src/bin/www",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --reporter=text mocha ./test/*.js --exit"
   },
   "repository": {
     "type": "git",
@@ -19,11 +19,18 @@
   "homepage": "https://github.com/TomvEtten/tomve#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-validator": "^5.3.1",
     "http-errors": "~1.6.3",
+    "mocha": "^6.1.4",
     "mongoose": "^5.5.15",
     "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "nyc": "^14.1.1"
   }
 }

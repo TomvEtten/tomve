@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 // Contact routes
 router.route('/user')
     .get(userController.index)
-    .post(userController.new);
+    .post(userController.validate() ,userController.new);
 router.route('/user/:user_id')
     .get(userController.view)
     .patch(userController.update)
