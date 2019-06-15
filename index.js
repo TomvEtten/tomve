@@ -26,3 +26,5 @@ app.get('/', (req, res) =>  res.json({
 app.listen(port, function () {
     console.log("Running on port : " + port)
 });
+
+module.exports = app
